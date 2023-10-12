@@ -1,0 +1,63 @@
+.cabecalho {
+  border: 1px solid black;
+  height: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.options-header {
+  width: 25rem;
+}
+
+.options-header ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.options-header li {
+  text-decoration: none;
+  list-style-type: none;
+  padding: 1rem;
+}
+
+a:link {
+  text-decoration: none;
+  color: inherit;
+  font-weight: inherit;
+}
+
+a {
+  color: inherit;
+  font-weight: inherit;
+}
+
+li {
+  position: relative;
+}
+
+li::after {
+  content: "";
+  position: absolute;
+  bottom: 8px;
+  height: 2px;
+  width: 100%;
+  left: 0;
+  background-color: #000;
+  transition: 0.3s;
+  transition-timing-function: ease-in-out;
+  transform: scaleX(0);
+}
+
+li:hover::after {
+  transform: scaleX(1);
+}
+
+#user-login i {
+  margin-left: 0.5rem;
+}
+
+#search-button:hover {
+  cursor: pointer;
+}

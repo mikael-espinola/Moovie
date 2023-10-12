@@ -1,0 +1,75 @@
+main {
+  height: max-content;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.movies {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  margin: 4px auto;
+}
+
+.img-movie img {
+  max-width: 200px;
+  max-height: 250px;
+  width: auto;
+  height: auto;
+  padding: 0.6rem;
+  object-fit: cover;
+}
+
+.card-movie {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-movie p {
+  text-transform: capitalize;
+  font-size: 19px;
+  padding: 0.4rem;
+  height: 5rem;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+}
+
+.score {
+  margin: 0.9rem 0;
+  font-size: 13px;
+}
+
+.movies button {
+  border: none;
+  background-color: inherit;
+  position: relative;
+  font-size: 17px;
+  margin-bottom: 0.5rem;
+}
+
+.movies button::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  height: 2px;
+  width: 100%;
+  left: 0;
+  background-color: #000;
+  transition: 0.3s;
+  transition-timing-function: ease-in-out;
+  transform: scaleX(0);
+}
+.movies button:hover {
+  cursor: pointer;
+}
+.movies button:hover::after {
+  transform: scaleX(1);
+}
