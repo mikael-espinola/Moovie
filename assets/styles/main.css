@@ -45,6 +45,11 @@ main {
 .score {
   margin: 0.9rem 0;
   font-size: 13px;
+  display: flex;
+}
+
+.stars {
+  margin-left: 0.5rem;
 }
 
 .movies button {

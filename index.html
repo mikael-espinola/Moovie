@@ -15,41 +15,28 @@
                 <a href="https://www.google.com.br"><li class="generic-li">Inicio</li></a>
                 <a href="https://www.google.com.br"><li class="generic-li">Categorias</li></a>
                 <li id="search-button" ><i class="fa-solid fa-magnifying-glass"></i></i></li>
-                <a href="https://www.google.com.br"><li id="user-login">Login<i class="fa-regular fa-user"></i></li></a>
+                <a href="#"><li id="user-login">Login<i class="fa-regular fa-user"></i></li></a>
             </ul>
         </nav>
     </header>
     <main>
-      <section class="movies">
-        <div class="card-movie">
-            <p class="title"> The Aquaman</p>
-            <div class="img-movie"><img src="./assets/components/img/aquaman.png" alt=""></div>
-            <div class="score">4,6 <i class="fa-regular fa-star" style="color: #e52a15;"></i><i class="fa-regular fa-star" style="color: #e52a15;"></i><i class="fa-regular fa-star" style="color: #e52a15;"></i><i class="fa-regular fa-star" style="color: #e52a15;"></i></div>
-            <button class="info-button"><h4>More info!</h4></button>
-        </div>
-        <div class="card-movie">
-            <p class="title"> Charlie und die Schokoladen Fabrik</p>
-            <div class="img-movie"><img src="./assets/components/img/chocolate factory.jpeg" alt=""></div>
-            <div class="score">4,8 <i class="fa-regular fa-star" style="color: #e52a15;"></i><i class="fa-regular fa-star" style="color: #e52a15;"></i><i class="fa-regular fa-star" style="color: #e52a15;"></i><i class="fa-regular fa-star" style="color: #e52a15;"></i></div>
-            <button class="info-button"><h4>More info!</h4></button>
-        </div>
-        <div class="card-movie">
-            <p class="title"> The Aquaman</p>
-            <div class="img-movie"><img src="./assets/components/img/aquaman.png" alt=""></div>
-            <div class="score">4,6 <i class="fa-regular fa-star" style="color: #e52a15;"></i><i class="fa-regular fa-star" style="color: #e52a15;"></i><i class="fa-regular fa-star" style="color: #e52a15;"></i><i class="fa-regular fa-star" style="color: #e52a15;"></i></div>
-            <button class="info-button"><h4>More info!</h4></button>
-        </div>
-        <div class="card-movie">
-            <p class="title"> The Aquaman</p>
-            <div class="img-movie"><img src="./assets/components/img/aquaman.png" alt=""></div>
-            <div class="score">4,6 <i class="fa-regular fa-star" style="color: #e52a15;"></i><i class="fa-regular fa-star" style="color: #e52a15;"></i><i class="fa-regular fa-star" style="color: #e52a15;"></i><i class="fa-regular fa-star" style="color: #e52a15;"></i></div>
-            <button class="info-button"><h4>More info!</h4></button>
-        </div>
-        
-      </section>
-
+      <section class="movies"></section>
     </main>
 
+    <dialog id="login-page">
+        <button id="close-dialog-login"><p>X</p></button>
+        <section id="login-area">
+            <h1>Login <i class="fa-regular fa-user"></i></h1>
+            <div class="login-form-container">
+                <form class="form-box">
+                    <input type="text" id="" placeholder="Enter your user/email...">
+                    <input type="password" id="input-password" placeholder="Enter your password...">
+                    <input type="submit" name="Enter" id="enter-button-login" value="Enter">
+                </form>
+            </div>
+        </section>
+    </dialog>
+    <script type="module" src="./assets/core/script.js" defer></script>
 </body>
 </html>
 
