@@ -33,7 +33,7 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 
-## Autor
+## Author
 
 - LinkedIn - [Mikael Espínola](https://www.linkedin.com/in/mikaelespinola)
 - E-mail - [GMAIL](mailto:mikaelespinolaa@gmail.com)
