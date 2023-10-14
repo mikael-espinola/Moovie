@@ -33,7 +33,7 @@ export const database = [
     id: 5,
     title: "Forrest Gump: O Contador de Histórias",
     img: "./assets/components/img/o-contador-de-historias.webp",
-    rate: "4.7",
+    rate: "2.7",
   },
   {
     id: 7,
@@ -45,12 +45,12 @@ export const database = [
     id: 8,
     title: "Matrix",
     img: "./assets/components/img/matrix.jpg",
-    rate: "4.6",
+    rate: "3.6",
   },
   {
     id: 9,
     title: "A Lista de Schindler",
     img: "./assets/components/img/a-lista-de-schindler.jpg",
-    rate: "4.9",
+    rate: "1.9",
   },
 ];
