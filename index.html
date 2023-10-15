@@ -15,7 +15,8 @@
                 <a href="https://www.google.com.br"><li class="generic-li">Inicio</li></a>
                 <a href="https://www.google.com.br"><li class="generic-li">Categorias</li></a>
                 <li id="search-button" ><i class="fa-solid fa-magnifying-glass"></i></i></li>
-                <a href="#"><li id="user-login">Login<i class="fa-regular fa-user"></i></li></a>
+                <a href="#"><li id="user-login"><label id="user-name">Login</label><i class="fa-regular fa-user"></i></li></a>
+                <i class="fa-regular fa-x logoff"></i>
             </ul>
         </nav>
     </header>
@@ -29,13 +30,15 @@
             <h1>Login <i class="fa-regular fa-user"></i></h1>
             <div class="login-form-container">
                 <form class="form-box">
-                    <input type="text" id="" placeholder="Enter your user/email...">
+                    <input type="text" id="input-user" placeholder="Enter your user/email...">
                     <input type="password" id="input-password" placeholder="Enter your password...">
                     <input type="submit" name="Enter" id="enter-button-login" value="Enter">
                 </form>
+                <div id="button-register"><button id="create-credential">Create an Account here!</button></div>
             </div>
         </section>
     </dialog>
+    <dialog id="create-account-page"></dialog>
     <script type="module" src="./assets/core/script.js" defer></script>
 </body>
 </html>
