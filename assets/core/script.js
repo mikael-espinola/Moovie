@@ -4,3 +4,4 @@ import "./localStorageLogin.js";
 import "./loginProcess.js";
 import "./createCredential.js";
 import "./localStorageLogin.js";
+import "./dialogRegister.js";

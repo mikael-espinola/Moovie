@@ -30,15 +30,35 @@
             <h1>Login <i class="fa-regular fa-user"></i></h1>
             <div class="login-form-container">
                 <form class="form-box">
-                    <input type="text" id="input-user" placeholder="Enter your user/email...">
-                    <input type="password" id="input-password" placeholder="Enter your password...">
+                    <input required type="text" id="input-user" placeholder="Enter your user/email...">
+                    <input required type="password" id="input-password" placeholder="Enter your password...">
                     <input type="submit" name="Enter" id="enter-button-login" value="Enter">
                 </form>
-                <div id="button-register"><button id="create-credential">Create an Account here!</button></div>
+                <div id="button-register"><button id="create-credential-button">Create an Account here!</button></div>
             </div>
         </section>
     </dialog>
-    <dialog id="create-account-page"></dialog>
+    <dialog id="create-account-page">
+        <div class="cancel-button"><p>X</p></div>
+        <h3>Register now!</h3>
+        <section>
+            <form class="register-form">
+                <p>First Name:</p>
+                <input required type="text" id="register-first-name-input">
+                <p>Last Name:</p>
+                <input required type="text" id="register-last-name-input">
+                <p>Age: (in years)</p>
+                <input required type="number" id="register-age-input" placeholder="15" min="1">
+                <p>E-mail:</p>
+                <input required type="email" id="register-email-input">
+                <p>Password:</p>
+                <input required type="password" id="register-password-input" min="8" max="22">
+                <p>Repeat the Password:</p>
+                <input required type="password" id="register-repeat-password-input" min="8" max="22">
+            </form>
+            <button id="register-button">Go ahead!</button>
+        </section>
+    </dialog>
     <script type="module" src="./assets/core/script.js" defer></script>
 </body>
 </html>

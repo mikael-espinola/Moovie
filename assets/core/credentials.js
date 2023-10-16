@@ -3,8 +3,8 @@ export const credentialsList = [
     nome: "Ana",
     sobrenome: "Silva",
     idade: "28",
-    senha: "1234",
     email: "ana.silva@email.com",
+    senha: "1234",
   },
   {
     nome: "Pedro",

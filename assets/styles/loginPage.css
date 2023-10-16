@@ -82,23 +82,13 @@
   margin: 3rem;
 }
 
-#create-credential {
+#create-credential-button {
   border-radius: 5px;
   padding: 0.2rem;
   border: 0.2px solid black;
   border-bottom: 2px solid black;
 }
 
-#create-credential:hover {
+#create-credential-button:hover {
   cursor: pointer;
-}
-
-#create-account-page {
-  width: 30%;
-  height: 80%;
-  margin: auto;
-  background-color: #fff;
-  opacity: 0.95;
-  border: none;
-  overflow: hidden;
 }
