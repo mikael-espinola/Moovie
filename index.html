@@ -12,11 +12,11 @@
         <h2>Moovie - Your favorite film finder</h2>
         <nav class="options-header">
             <ul>
-                <a href="https://www.google.com.br"><li class="generic-li">Inicio</li></a>
-                <a href="https://www.google.com.br"><li class="generic-li">Categorias</li></a>
-                <li id="search-button" ><i class="fa-solid fa-magnifying-glass"></i></i></li>
-                <a href="#"><li id="user-login"><label id="user-name">Login</label><i class="fa-regular fa-user"></i></li></a>
-                <i class="fa-regular fa-x logoff"></i>
+                <li class="generic-li"><a href="#">Inicio</a></li>
+                <li class="generic-li"><a href="#">Categorias</a></li>
+                <li class="generic-li" id="search-button"><i class="fa-solid fa-magnifying-glass"></i></i></li>
+                <li class="generic-li" id="user-login"><label id="user-name">Login</label><i class="fa-regular fa-user"></i></li>
+                <li id="box--power-off"><i class="fa-solid fa-power-off logoff-button--hidden"></i></li>
             </ul>
         </nav>
     </header>
@@ -25,40 +25,58 @@
     </main>
 
     <dialog id="login-page">
-        <button id="close-dialog-login"><p>X</p></button>
+        <button id="close-dialog-login"><i class="fa-solid fa-circle-xmark close-dialog-login-button" aria-label="Close" title="Close"></i></button>
         <section id="login-area">
             <h1>Login <i class="fa-regular fa-user"></i></h1>
             <div class="login-form-container">
-                <form class="form-box">
-                    <input required type="text" id="input-user" placeholder="Enter your user/email...">
-                    <input required type="password" id="input-password" placeholder="Enter your password...">
-                    <input type="submit" name="Enter" id="enter-button-login" value="Enter">
+                <form class="form-box--login">
+                    <input required type="text" name="user" id="input-user" placeholder="Enter your user/email...">
+                    <input required type="password" id="input-password" name="password" placeholder="Enter your password...">
+                    <input type="submit" name="Enter" name="enterButton" id="enter-button-login" value="Log In">
                 </form>
-                <div id="button-register"><button id="create-credential-button">Create an Account here!</button></div>
+                <div id="button-register"><button id="create-credential-button">Become a Member!</button></div>
             </div>
         </section>
     </dialog>
     <dialog id="create-account-page">
-        <div class="cancel-button"><p>X</p></div>
+        <div class="cancel-button"><i class="fa-solid fa-circle-xmark" aria-label="Close" title="Close"></i></div>
         <h3>Register now!</h3>
         <section>
             <form class="register-form">
-                <p>First Name:</p>
-                <input required type="text" id="register-first-name-input">
-                <p>Last Name:</p>
-                <input required type="text" id="register-last-name-input">
-                <p>Age: (in years)</p>
-                <input required type="number" id="register-age-input" placeholder="15" min="1">
-                <p>E-mail:</p>
-                <input required type="email" id="register-email-input">
-                <p>Password:</p>
-                <input required type="password" id="register-password-input" min="8" max="22">
-                <p>Repeat the Password:</p>
-                <input required type="password" id="register-repeat-password-input" min="8" max="22">
+                <label>First Name:</label>
+                <input required name="name" type="text" id="register-first-name-input">
+                <label>Last Name:</label>
+                <input required name="lastName" type="text" id="register-last-name-input">
+                <label>Age: (in years)</label>
+                <input required name="age" type="number" id="register-age-input" placeholder="15" min="1">
+                <label>E-mail:</label>
+                <input required name="email" type="email" id="register-email-input">
+                <label>Password:</label>
+                <div class="password-area">
+                    <input required name="password" type="password" class="input-password first-pass" maxlength="20" id="register-password-input" min="8" max="22" >
+                    <img src="./assets/components/svg/eye-svgrepo-com.svg"  class="olho">
+                </div>
+                <label>Repeat the Password:</label>
+                <div class="password-area">
+                    <input required type="password" class="input-password confirm-pass" maxlength="20" id="register-repeat-password-input" min="8" max="22">
+                    <img src="./assets/components/svg/eye-svgrepo-com.svg"  class="olho">
+                </div>
+                <input type="submit" value="Go ahead!" id="register-button">
             </form>
-            <button id="register-button">Go ahead!</button>
+            <!-- <button id="register-button" type="submit">Go ahead!</button> -->
         </section>
     </dialog>
+
+    <template class="moovies">
+        <div class="card-movie">
+            <p class="title"></p>
+            <div class="img-movie"></div>
+            <div class="score"></div>
+            <button class="info-button">
+                <h4>More info!</h4>
+            </button>
+        </div>
+    </template>
     <script type="module" src="./assets/core/script.js" defer></script>
 </body>
 </html>

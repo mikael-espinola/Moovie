@@ -17,7 +17,7 @@
   justify-content: end;
 }
 
-.cancel-button p:hover {
+.fa-circle-xmark:hover {
   cursor: pointer;
 }
 
@@ -55,4 +55,23 @@ h3 {
 
 #register-button:hover {
   cursor: pointer;
+}
+
+.password-area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* border: 1px solid black; */
+}
+
+.input-password {
+  width: 100%;
+  padding-right: 20px;
+}
+
+.olho {
+  cursor: pointer;
+  width: 1.5em;
+  position: absolute;
+  right: 17px;
 }

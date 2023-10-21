@@ -1,46 +1,43 @@
-import { credentialsList } from "./credentials.js";
-import { loginPage } from "./dialogLogin.js";
+import { credentials } from "./mocks.js";
+import { loginPage } from "./registerDialogs.js";
 
-const loginUserName = document.querySelector("#user-name");
-export const userInput = document.querySelector("#input-user");
-export const passwordInput = document.querySelector("#input-password");
-export const buttonInput = document.querySelector("#enter-button-login");
-const exitLogin = document.querySelector(".logoff");
+const exitLogin = document.querySelector(".logoff-button--hidden");
+const form = document.querySelector(".form-box--login");
+let loginUserName = document.querySelector("#user-name");
 
-exitLogin.style.display = "none";
+form.onsubmit = (event) => {
+  event.preventDefault();
 
-// porquê só aqui o display funcionou
+  const currentUserEmail = event.target.user.value.trim();
+  const currentPassword = event.target.password.value;
 
-console.log(credentialsList);
+  const user = credentials.find(
+    ({ email, senha }) =>
+      email === currentUserEmail && senha === currentPassword
+  );
 
-buttonInput.onclick = (e) => {
-  e.preventDefault();
+  if (user) {
+    exitLogin.classList.remove("logoff-button--hidden");
+    form.reset();
+    loginPage.close();
 
-  credentialsList.forEach((user) => {
-    let currentUser = userInput.value;
-    let currentPassword = passwordInput.value;
-    if (currentUser === user.email && currentPassword === user.senha) {
-      exitLogin.style.display = "inline";
-      userInput.value = "";
-      passwordInput.value = "";
-      loginPage.close();
+    const userToLocal = JSON.stringify(user);
+    localStorage.setItem("user", userToLocal);
 
-      const userToLocal = JSON.stringify(user);
-      localStorage.setItem("user", userToLocal);
+    let userFromLocal = localStorage.getItem("user");
+    if (userFromLocal) {
+      const currentUserName = JSON.parse(userFromLocal);
+
+      loginUserName.textContent = currentUserName.nome;
     }
-  });
-  userInput.value = "";
-  passwordInput.value = "";
-
-  let userFromLocal = localStorage.getItem("user");
-  let currentUser = JSON.parse(userFromLocal);
-
-  loginUserName.textContent = currentUser.nome;
+  } else {
+    alert("Usuáro inválido!");
+    form.reset();
+  }
 };
 
 exitLogin.onclick = () => {
-  // criar dialog
   localStorage.removeItem("user");
   loginUserName.textContent = "Login";
-  exitLogin.style.display = "none";
+  exitLogin.classList.add("logoff-button--hidden");
 };

@@ -1,10 +1,16 @@
 .cabecalho {
   border: 1px solid black;
+  border-radius: 5px;
+  margin: 0.5rem 0;
   height: 7rem;
   display: flex;
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1;
 }
 
 .options-header {
@@ -33,11 +39,11 @@ a {
   font-weight: inherit;
 }
 
-li {
+.generic-li {
   position: relative;
 }
 
-li::after {
+.generic-li::after {
   content: "";
   position: absolute;
   bottom: 8px;
@@ -50,7 +56,7 @@ li::after {
   transform: scaleX(0);
 }
 
-li:hover::after {
+.generic-li:hover::after {
   transform: scaleX(1);
 }
 
@@ -58,10 +64,18 @@ li:hover::after {
   margin-left: 0.5rem;
 }
 
+#user-name:hover {
+  cursor: pointer;
+}
+
 #search-button:hover {
   cursor: pointer;
 }
 
-.logoff:hover {
+.logoff-button--hidden {
+  display: none !important;
+}
+
+.fa-power-off:hover {
   cursor: pointer;
 }

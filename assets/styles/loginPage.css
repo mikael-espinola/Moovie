@@ -6,6 +6,7 @@
   opacity: 0.95;
   border: none;
   overflow: hidden;
+  border-radius: 8px;
 }
 
 #close-dialog-login {
@@ -17,8 +18,8 @@
   justify-content: end;
 }
 
-#close-dialog-login p:hover {
-  cursor: pointer;
+.close-dialog-login-button {
+  margin-top: 0.9rem;
 }
 
 #login-area {
@@ -49,12 +50,12 @@
   width: 80%;
 }
 
-.form-box {
+.form-box--login {
   display: flex;
   flex-direction: column;
 }
 
-.form-box input {
+.form-box--login input {
   margin-bottom: 0.6rem;
   padding: 1rem;
   font-size: 12px;

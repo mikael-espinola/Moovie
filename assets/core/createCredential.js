@@ -1,35 +1,31 @@
-import { credentialsList } from "./credentials.js";
-import { createPage } from "./dialogRegister.js";
-import { resetRegisterInput } from "./resetRegisterInput.js";
+import { credentials } from "./mocks.js";
+import { createPage } from "./registerDialogs.js";
 
-let userFirstName = document.querySelector("#register-first-name-input");
-let userLastName = document.querySelector("#register-last-name-input");
-let userAge = document.querySelector("#register-age-input");
-let userEmail = document.querySelector("#register-email-input");
 let userPassword = document.querySelector("#register-password-input");
 let secondPassword = document.querySelector("#register-repeat-password-input");
-let saveRegisterButton = document.querySelector("#register-button");
+let theForm = document.querySelector(".register-form");
 
-saveRegisterButton.onclick = (e) => {
+theForm.onsubmit = (e) => {
   e.preventDefault();
 
   if (userPassword.value === secondPassword.value) {
-    const user = [
-      {
-        nome: userFirstName.value.trim(),
-        sobrenome: userLastName.value.trim(),
-        idade: userAge.value,
-        email: userEmail.value.trim(),
-        senha: userPassword.value,
-      },
-    ];
+    const user = {
+      nome: e.target.name.value.trim(),
+      sobrenome: e.target.lastName.value.trim(),
+      idade: e.target.age.value,
+      email: e.target.email.value.trim(),
+      senha: e.target.password.value,
+    };
 
-    credentialsList.push(user[0]);
+    credentials.push(user);
 
-    resetRegisterInput(e);
+    theForm.reset();
+    alert(
+      `Usuário cadastrado com sucesso!\nSeja bem-vindo(a) ${user.nome} ${user.sobrenome}\n\nFaça o login para aproveitar!`
+    );
     createPage.close();
   } else {
-    console.log("Senha errada!");
-    resetRegisterInput();
+    alert("Senha errada!");
+    theForm.reset();
   }
 };
