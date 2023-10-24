@@ -9,7 +9,7 @@ main {
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   grid-gap: 10px;
   margin: 4px auto;
 }
@@ -21,6 +21,11 @@ main {
   height: auto;
   padding: 0.6rem;
   object-fit: cover;
+}
+
+.img-movie img:hover {
+  user-select: none;
+  cursor: pointer;
 }
 
 .card-movie {
@@ -42,12 +47,15 @@ main {
 .title {
   display: flex;
   align-items: center;
+  text-align: center;
+  user-select: none;
 }
 
 .score {
   margin: 0.9rem 0;
   font-size: 13px;
   display: flex;
+  user-select: none;
 }
 
 .stars {

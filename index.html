@@ -12,7 +12,7 @@
         <h2>Moovie - Your favorite film finder</h2>
         <nav class="options-header">
             <ul>
-                <li class="generic-li"><a href="#">Inicio</a></li>
+                <li class="generic-li"><a href="#" class="inicio-button">Inicio</a></li>
                 <li class="generic-li"><a href="#">Categorias</a></li>
                 <li class="generic-li" id="search-button"><i class="fa-solid fa-magnifying-glass"></i></i></li>
                 <li class="generic-li" id="user-login"><label id="user-name">Login</label><i class="fa-regular fa-user"></i></li>
@@ -63,17 +63,24 @@
                 </div>
                 <input type="submit" value="Go ahead!" id="register-button">
             </form>
-            <!-- <button id="register-button" type="submit">Go ahead!</button> -->
         </section>
     </dialog>
 
-    <template class="moovies">
+    <dialog id="selected-movie">
+        <header>
+            <div class="selected-movie--cancel-button cancel-button"><i class="fa-solid fa-circle-xmark" aria-label="Close" title="Close"></i></div>
+            <h2 id="selected-movie--title"></h2>
+        </header>
+        <main id="selected-movie--container"></main>
+    </dialog>
+
+    <template class="template-movie">
         <div class="card-movie">
             <p class="title"></p>
             <div class="img-movie"></div>
             <div class="score"></div>
             <button class="info-button">
-                <h4>More info!</h4>
+                <h4 class="template-button--text">More info!</h4>
             </button>
         </div>
     </template>
