@@ -49,17 +49,19 @@ export const credentials = [
 
 let movies = [];
 
+const language = window.navigator.language;
+
 fetch(
-  `https://api.themoviedb.org/3/movie/popular?api_key=${env.apiToken}&language=en-US`
+  `https://api.themoviedb.org/3/movie/popular?api_key=${env.apiToken}&language=${language}`
 )
-  .then((resp) =>
-    resp.json().then((data) => {
-      movies = [...data.results];
-      movies.map((movie) => {
-        renderMovieCard(movie);
-      });
-    })
-  )
+  .then((resp) => resp.json())
+  .then((json) => {
+    movies = json.results;
+    movies.map((movie) => {
+      renderMovieCard(movie);
+    });
+  })
+
   .catch((error) => {
     console.error("Ocorreu um erro:", error);
   });
