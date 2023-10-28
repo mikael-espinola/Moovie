@@ -11,7 +11,6 @@ const reloadButton = document.querySelector(".slider-reload");
 const toTheTopButton = document.querySelector(".slider--home");
 
 export const currentPage = (pageNumber) => {
-  console.log(pageNumber);
   getInfoApi(pageNumber);
 };
 

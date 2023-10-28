@@ -13,7 +13,6 @@ const selectedMovie = document.querySelector("#selected-movie-dialog");
 
 export const selectedMovieFunction = (movie) => {
   selectedMovie.showModal();
-  console.log(movie);
 
   let title = document.querySelector("#selected-movie--title");
   title.textContent = movie.title;
@@ -30,7 +29,6 @@ export const selectedMovieFunction = (movie) => {
 
   let rate = document.querySelector(".current-score");
   let value = Math.round(parseFloat(movie.vote_average)) / 2;
-  console.log(value);
   rate.textContent = value;
 };
 
