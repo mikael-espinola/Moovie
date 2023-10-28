@@ -13,8 +13,8 @@
         <h2>Moovie - Your favorite film finder</h2>
         <nav class="options-header">
             <ul>
-                <li class="generic-li"><a href="#" class="inicio-button">Inicio</a></li>
-                <li class="generic-li"><a href="#">Categorias</a></li>
+                <li class="generic-li"><a href="#" class="inicio-button">Home</a></li>
+                <li class="generic-li"><a href="#">Categories</a></li>
                 <li class="generic-li" id="search-button"><i class="fa-solid fa-magnifying-glass"></i></i></li>
                 <li class="generic-li" id="user-login"><label id="user-name">Login</label><i class="fa-regular fa-user"></i></li>
                 <li id="box--power-off"><i class="fa-solid fa-power-off logoff-button--hidden"></i></li>
@@ -24,6 +24,14 @@
     <main>
       <section class="movies"></section>
     </main>
+    <footer>
+        <section class="slider-pages">
+            <button class="slider-reload clickable" value="1"><i class="fa-solid fa-rotate-right"></i></button>
+            <label class="current-page label-hidden">1</label>
+            <button class="slider--home clickable" value="1"><i class="fa-solid fa-arrow-right fa-rotate-270"></i></button>
+        </section>
+        
+    </footer>
 
     <dialog id="login-page">
         <button id="close-dialog-login"><i class="fa-solid fa-circle-xmark close-dialog-login-button" aria-label="Close" title="Close"></i></button>
@@ -67,12 +75,34 @@
         </section>
     </dialog>
 
-    <dialog id="selected-movie">
-        <header>
+    <dialog id="selected-movie-dialog">
+        <header class="selected-movie--header">
             <div class="selected-movie--cancel-button cancel-button"><i class="fa-solid fa-circle-xmark" aria-label="Close" title="Close"></i></div>
             <h2 id="selected-movie--title"></h2>
         </header>
-        <main id="selected-movie--container"></main>
+        <main id="selected-movie--container">
+            <figure class="selected-movie--container-img">
+                <img class="selected-movie--img">
+            </figure>
+            <section class="selected-movie--details">
+                <p class="selected-movie--overview"></p>
+                <div class="border-line"></div>
+                <div class="release-and-score--container">
+                    <div class="released-container">Released on: <label class="data-released"></label></div>
+
+                    <div class="selected-score"><label>Score:<label><label class="current-score"></label><i class="fa-regular fa-star" style="color: rgb(229, 42, 21);"></i></label></label></div>
+                </div>
+
+                <div class="selected-movie--more-details">
+                    <div class="border-line"></div>
+                    <button class="button-trailer"><i class="fa-brands fa-youtube youtube-icon"></i>Watch Trailer now!</button>
+                </div>
+                <div class="border-line"></div>
+                
+                
+            </section>
+
+        </main>
     </dialog>
 
     <template class="template-movie">

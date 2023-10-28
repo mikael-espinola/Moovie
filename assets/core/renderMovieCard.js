@@ -13,24 +13,27 @@ export const renderMovieCard = (movie) => {
 
   const imgContent = clone.querySelector(".img-movie");
 
-  const image = document.createElement("img");
+  let image = document.createElement("img");
   image.classList.add("image");
   image.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
   image.alt = movie.title;
 
+  image.onclick = () => {
+    selectedMovieFunction(movie);
+  };
+
   imgContent.appendChild(image);
 
   const score = clone.querySelector(".score");
+  const starsNumbers = Math.round(parseFloat(movie.vote_average)) / 2;
 
   const numberOfRate = document.createElement("label");
   numberOfRate.classList.add("numberRate");
-  numberOfRate.textContent = movie.vote_average;
+  numberOfRate.textContent = starsNumbers;
   score.appendChild(numberOfRate);
 
   const starsLabel = document.createElement("label");
   starsLabel.classList.add("stars");
-
-  const starsNumbers = Math.round(parseInt(movie.vote_average));
 
   for (let i = 0; i < starsNumbers; i++) {
     const star = document.createElement("i");
