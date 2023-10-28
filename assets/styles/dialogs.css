@@ -1,0 +1,35 @@
+#selected-movie {
+  width: 50rem;
+  height: 100vh;
+  background-color: rgb(241, 241, 233);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+}
+
+.selected-movie--mainDetails {
+  border: 2px solid red;
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.selected-movie--container {
+  width: 100%;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.selected-movie--img-movie-box {
+  display: block;
+  width: 30%;
+}
+
+.selected-movie--image {
+  width: 15rem;
+  height: 25rem;
+}

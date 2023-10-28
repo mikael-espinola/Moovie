@@ -1,8 +1,9 @@
-import { movies } from "./mocks.js";
+import { selectedMovieFunction } from "./selectedMovieDialog.js";
+
 const sectionMovie = document.querySelector(".movies");
 
-const renderMoovieCard = (movie) => {
-  const template = document.querySelector(".moovies");
+export const renderMovieCard = (movie) => {
+  const template = document.querySelector(".template-movie");
   const clone = template.content.cloneNode(true);
 
   const card = clone.querySelector(".card-movie");
@@ -12,23 +13,27 @@ const renderMoovieCard = (movie) => {
 
   const imgContent = clone.querySelector(".img-movie");
 
-  const image = document.createElement("img");
-  image.src = movie.img;
+  let image = document.createElement("img");
+  image.classList.add("image");
+  image.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
   image.alt = movie.title;
+
+  image.onclick = () => {
+    selectedMovieFunction(movie);
+  };
 
   imgContent.appendChild(image);
 
   const score = clone.querySelector(".score");
+  const starsNumbers = Math.round(parseFloat(movie.vote_average)) / 2;
 
   const numberOfRate = document.createElement("label");
   numberOfRate.classList.add("numberRate");
-  numberOfRate.textContent = movie.rate;
+  numberOfRate.textContent = starsNumbers;
   score.appendChild(numberOfRate);
 
   const starsLabel = document.createElement("label");
   starsLabel.classList.add("stars");
-
-  const starsNumbers = Math.round(parseFloat(movie.rate));
 
   for (let i = 0; i < starsNumbers; i++) {
     const star = document.createElement("i");
@@ -40,9 +45,9 @@ const renderMoovieCard = (movie) => {
 
   let infoButton = clone.querySelector(".info-button");
 
+  infoButton.onclick = () => {
+    selectedMovieFunction(movie);
+  };
+
   sectionMovie.appendChild(clone);
 };
-
-movies.map((mmovie) => {
-  renderMoovieCard(mmovie);
-});

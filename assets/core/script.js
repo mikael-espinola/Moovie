@@ -3,3 +3,6 @@ import "./loginProcess.js";
 import "./createCredential.js";
 import "./showPassword.js";
 import "./registerDialogs.js";
+import "./selectedMovieDialog.js";
+import "./loader.js";
+import "./sliders.js";
