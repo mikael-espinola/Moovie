@@ -6,3 +6,4 @@ import "./registerDialogs.js";
 import "./selectedMovieDialog.js";
 import "./loader.js";
 import "./sliders.js";
+import "././api/youtubeApi.js";

@@ -2,12 +2,7 @@ const closeSelectedMovieModal = document.querySelector(
   ".selected-movie--cancel-button"
 );
 
-let buttonTrailer = document.querySelector(".button-trailer");
-
-buttonTrailer.onclick = () => {
-  const url = "https://youtube.com";
-  window.open(url, "_blank");
-};
+export let buttonTrailer = document.querySelector(".button-trailer");
 
 const selectedMovie = document.querySelector("#selected-movie-dialog");
 

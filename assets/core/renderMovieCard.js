@@ -1,3 +1,4 @@
+import { getVideoSelectedData } from "./api/youtubeApi.js";
 import { selectedMovieFunction } from "./selectedMovieDialog.js";
 
 const sectionMovie = document.querySelector(".movies");
@@ -5,8 +6,6 @@ const sectionMovie = document.querySelector(".movies");
 export const renderMovieCard = (movie) => {
   const template = document.querySelector(".template-movie");
   const clone = template.content.cloneNode(true);
-
-  const card = clone.querySelector(".card-movie");
 
   const title = clone.querySelector(".title");
   title.textContent = movie.title;
@@ -18,8 +17,9 @@ export const renderMovieCard = (movie) => {
   image.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
   image.alt = movie.title;
 
-  image.onclick = () => {
+  imgContent.onclick = () => {
     selectedMovieFunction(movie);
+    getVideoSelectedData(movie);
   };
 
   imgContent.appendChild(image);
@@ -47,6 +47,7 @@ export const renderMovieCard = (movie) => {
 
   infoButton.onclick = () => {
     selectedMovieFunction(movie);
+    getVideoSelectedData(movie);
   };
 
   sectionMovie.appendChild(clone);
