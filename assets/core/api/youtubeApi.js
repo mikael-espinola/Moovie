@@ -3,7 +3,7 @@ import { buttonTrailer } from "../selectedMovieDialog.js";
 
 const getYoutubeVideo = (movieTitle) => {
   fetch(
-    `https://www.googleapis.com/youtube/v3/search?key=${env.apiYoutubeToken}&q=${movieTitle}&type=video&order=viewCount`
+    `https://www.googleapis.com/youtube/v3/search?key=${env.apiYoutubeToken}&q=${movieTitle}&type=video`
   )
     .then((resp) => resp.json())
     .then((json) => {
@@ -16,6 +16,6 @@ const getYoutubeVideo = (movieTitle) => {
 };
 
 export const getVideoSelectedData = (movie) => {
-  let movieTitle = `${movie.title} Official trailer`;
+  let movieTitle = `${movie.title} Official movie trailer`;
   getYoutubeVideo(movieTitle);
 };
