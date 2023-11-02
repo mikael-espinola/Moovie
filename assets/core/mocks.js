@@ -66,6 +66,12 @@ export const getInfoApi = (value) => {
 
     .catch((error) => {
       console.error("Ocorreu um erro:", error);
+    })
+
+    .finally(() => {
+      const loader = document.querySelector(".loader");
+
+      loader.classList.add("loader--hidden");
     });
 };
 
