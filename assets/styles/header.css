@@ -83,3 +83,7 @@ a {
 .fa-power-off:hover {
   cursor: pointer;
 }
+
+.dropdown--generic-li-label:hover {
+  cursor: pointer;
+}

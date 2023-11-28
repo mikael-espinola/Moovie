@@ -1,6 +1,8 @@
 import { renderMovieCard } from "./renderMovieCard.js";
 
 import env from "../env.js";
+import { getCategories } from "./dropdownCategories.js";
+import { container } from "./searchingMovie.js";
 
 export const credentials = [
   {
@@ -56,12 +58,21 @@ export const getInfoApi = (value) => {
   return fetch(
     `https://api.themoviedb.org/3/movie/popular?api_key=${env.apiToken}&language=${language}&page=${pageNumber}`
   )
-    .then((resp) => resp.json())
-    .then((json) => {
-      movies = json.results;
-      movies.map((movie) => {
-        renderMovieCard(movie);
-      });
+    .then((resp1) => resp1.json())
+    .then((json1) => {
+      fetch(
+        `https://api.themoviedb.org/3/genre/movie/list?language=${language}&api_key=${env.apiToken}&page=3`
+      )
+        .then((resp2) => resp2.json())
+        .then((json2) => {
+          let genresList = json2.genres;
+
+          movies = json1.results;
+          movies.map((movie) => {
+            renderMovieCard(movie, genresList);
+          });
+          getCategories(genresList);
+        });
     })
 
     .catch((error) => {
@@ -72,6 +83,35 @@ export const getInfoApi = (value) => {
       const loader = document.querySelector(".loader");
 
       loader.classList.add("loader--hidden");
+    });
+};
+
+export const searchingByNameMovie = (movieName) => {
+  fetch(
+    `https://api.themoviedb.org/3/search/movie?query=${movieName}&api_key=${env.apiToken}`
+  )
+    .then((resp) => resp.json())
+    .then((json) => {
+      let searchs = json.results;
+      searchs.map((movie) => {
+        renderMovieCard(movie);
+      });
+    });
+};
+
+export const searchingByCategoryMovie = (categoryId) => {
+  fetch(
+    `https://api.themoviedb.org/3/discover/movie?api_key=${env.apiToken}&with_genres=${categoryId}`
+  )
+    .then((resp) => resp.json())
+    .then((json) => {
+      let movies = json.results;
+
+      container.innerHTML = "";
+
+      movies.map((movie) => {
+        renderMovieCard(movie);
+      });
     });
 };
 

@@ -48,15 +48,25 @@
   height: max-content;
 }
 
-.release-and-score--container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
+.info-containers {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "released score"
+    "genders genders";
+}
+
+.released-container {
+  grid-area: released;
+}
+
+.selected-score {
+  grid-area: score;
+  text-align: end;
 }
 
 .current-score {
-  margin: 0 1rem;
+  margin: 0.1rem;
 }
 
 .button-trailer {
@@ -81,4 +91,9 @@
 .button-trailer:hover {
   color: red;
   cursor: pointer;
+}
+
+.genders {
+  margin-top: 0.5rem;
+  grid-area: genders;
 }

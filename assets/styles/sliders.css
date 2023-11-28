@@ -1,40 +1,18 @@
-.slider-pages {
-  /* border: 2px solid red; */
-  margin: 1rem 0;
-  height: 2rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.slider-pages button {
-  width: 2.5rem;
-  height: 100%;
-  border-radius: 5px;
-  border: none;
+.slider--home {
+  position: fixed;
+  width: 3rem;
+  height: 3rem;
+  bottom: 1rem;
+  right: 0.5rem;
+  border-radius: 35px;
+  border: 1px black solid;
 }
 
 .clickable:hover {
+  transition: 1s;
   cursor: pointer;
-  border: 1px solid black;
-}
-
-.current-page {
-  height: 100%;
-  width: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* margin: 0 0.8rem; */
-}
-
-.slider-left,
-.slider-right {
-  margin: 0 0.8rem;
-}
-
-.slider-reload {
-  margin-right: 0.8rem;
+  width: 4rem;
+  height: 4rem;
 }
 
 .label-hidden {

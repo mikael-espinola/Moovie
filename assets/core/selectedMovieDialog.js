@@ -1,3 +1,5 @@
+import { idMoviesFunction } from "./idMoviesFunction.js";
+
 const closeSelectedMovieModal = document.querySelector(
   ".selected-movie--cancel-button"
 );
@@ -6,7 +8,7 @@ export let buttonTrailer = document.querySelector(".button-trailer");
 
 const selectedMovie = document.querySelector("#selected-movie-dialog");
 
-export const selectedMovieFunction = (movie) => {
+export const selectedMovieFunction = (movie, genre) => {
   selectedMovie.showModal();
 
   let title = document.querySelector("#selected-movie--title");
@@ -25,6 +27,9 @@ export const selectedMovieFunction = (movie) => {
   let rate = document.querySelector(".current-score");
   let value = Math.round(parseFloat(movie.vote_average)) / 2;
   rate.textContent = value;
+
+  let movieGender = document.querySelector(".list-of-genders");
+  movieGender.textContent = idMoviesFunction(movie, genre);
 };
 
 let closeSelectedDialog = () => {

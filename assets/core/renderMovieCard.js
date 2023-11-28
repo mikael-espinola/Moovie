@@ -1,9 +1,10 @@
 import { getVideoSelectedData } from "./api/youtubeApi.js";
+import { idMoviesFunction } from "./idMoviesFunction.js";
 import { selectedMovieFunction } from "./selectedMovieDialog.js";
 
 const sectionMovie = document.querySelector(".movies");
 
-export const renderMovieCard = (movie) => {
+export const renderMovieCard = (movie, genre) => {
   const template = document.querySelector(".template-movie");
   const clone = template.content.cloneNode(true);
 
@@ -18,7 +19,7 @@ export const renderMovieCard = (movie) => {
   image.alt = movie.title;
 
   image.onclick = () => {
-    selectedMovieFunction(movie);
+    selectedMovieFunction(movie, genre);
     getVideoSelectedData(movie);
   };
 
@@ -46,9 +47,8 @@ export const renderMovieCard = (movie) => {
   let infoButton = clone.querySelector(".info-button");
 
   infoButton.onclick = () => {
-    selectedMovieFunction(movie);
+    selectedMovieFunction(movie, genre);
     getVideoSelectedData(movie);
   };
-
   sectionMovie.appendChild(clone);
 };
