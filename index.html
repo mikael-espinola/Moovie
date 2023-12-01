@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/styles/styles.css" />
+    <script src="https://www.youtube.com/iframe_api"></script>
+
     <script
       src="https://kit.fontawesome.com/79b557caef.js"
       crossorigin="anonymous"
@@ -15,17 +17,27 @@
     <header class="cabecalho">
       <h2>Moovie - Your favorite film finder</h2>
       <nav class="options-header">
-        <ul>
-          <li class="generic-li"><a href="#" class="inicio-button">Home</a></li>
+        <ul class="gerenic-ul">
+          <li class="generic-li">
+            <label class="link inicio-button">Home</label>
+          </li>
           <li class="generic-li dropdown categories-button" data-dropdown>
-            <a href="#" class="link" data-dropdown-button>Categories</a>
+            <label class="link link-categories" data-dropdown-button
+              >Categories</label
+            >
             <div class="dropdown-menu information-grid">
               <div>
-                <ol class="dropdown-gender-list"></ol>
+                <ol class="dropdown-genre-list">
+                  <li class="generic-li">
+                    <label class="dropdown--generic-li-label">All</label>
+                  </li>
+                </ol>
               </div>
             </div>
+            <i class="fa-solid fa-chevron-down"></i>
           </li>
           <li class="generic-li dropdown" data-dropdown id="search-button">
+            <label class="label-visibility--search"></label>
             <i
               class="fa-solid fa-magnifying-glass link"
               data-dropdown-button
@@ -208,8 +220,8 @@
                   ></i></label
               ></label>
             </div>
-            <div class="genders">
-              Genders: <label class="list-of-genders"></label>
+            <div class="genres">
+              Genres: <label class="list-of-genres"></label>
             </div>
           </div>
 
@@ -243,6 +255,18 @@
       </div>
     </template>
 
+    <div class="error-screen--container error-screen--hidden">
+      <p>Filme não localizado!</p>
+      <lord-icon
+        class="error-screen--icon"
+        src="https://cdn.lordicon.com/ygvjgdmk.json"
+        trigger="hover"
+        style="width: 350px; height: 250px"
+      >
+      </lord-icon>
+    </div>
+
     <script type="module" src="./assets/core/script.js" defer></script>
+    <script src="https://cdn.lordicon.com/lordicon.js" defer></script>
   </body>
 </html>

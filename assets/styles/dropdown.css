@@ -24,7 +24,7 @@
   pointer-events: auto;
 }
 
-.dropdown-gender-list {
+.dropdown-genre-list {
   display: grid;
   grid-template-columns: repeat(2, max-content);
   gap: 2px;

@@ -1,6 +1,9 @@
-import { findGenderId } from "./idMoviesFunction.js";
+import { findGenreId } from "./idMoviesFunction.js";
+import { getAllCategoriesApi } from "./mocks.js";
+import { reloadHomePage } from "./querystringURL.js";
+import { labelSearch, nameLinkCategories } from "./searchingMovie.js";
 
-const dropdownInput = document.querySelector(".dropdown--search-input");
+const genreContainer = document.querySelector(".dropdown-genre-list");
 
 document.addEventListener("click", (e) => {
   const isDropdownButton = e.target.matches("[data-dropdown-button]");
@@ -18,27 +21,36 @@ document.addEventListener("click", (e) => {
   });
 });
 
-const observerGenders = (genderList) => {
-  const gendersButtons = document.querySelectorAll(
+const observerGenres = () => {
+  const genresButtons = document.querySelectorAll(
     ".dropdown--generic-li-label"
   );
 
-  gendersButtons.forEach((gender) => {
-    gender.onclick = () => {
-      let genderName = gender.textContent;
-      const genderContainer = document.querySelector(".categories-button");
-      genderContainer.classList.remove("active");
-      findGenderId(genderList, genderName);
+  genresButtons.forEach((genre) => {
+    genre.onclick = () => {
+      labelSearch.classList.remove("label-visibility--active");
+      let genreName = genre.textContent;
+
+      if (genreName === "All") {
+        isAllButton();
+        reloadHomePage();
+        return;
+      } else {
+        nameLinkCategories.textContent = genreName;
+
+        const genreContainer = document.querySelector(".categories-button");
+        genreContainer.classList.remove("active");
+        findGenreId(genreName);
+      }
     };
   });
 };
 
-const renderGender = (category, genderList) => {
+const renderGenres = (category) => {
   const li = document.createElement("li");
   li.classList.add("generic-li");
 
-  const link = document.createElement("a");
-  link.href = "#";
+  const link = document.createElement("label");
 
   const labelValue = document.createElement("label");
   labelValue.classList.add("dropdown--generic-li-label");
@@ -47,16 +59,21 @@ const renderGender = (category, genderList) => {
   link.appendChild(labelValue);
 
   li.appendChild(link);
-  genderContainer.appendChild(li);
+  genreContainer.appendChild(li);
 
-  observerGenders(genderList);
+  observerGenres();
 };
 
-const genderContainer = document.querySelector(".dropdown-gender-list");
+export const caughtGenres = async () => {
+  const categories = await getAllCategoriesApi();
 
-export const getCategories = (categories) => {
   let allCategoriesName = categories.map((category) => category.name);
-  let allCategoriesId = categories.map((category) => category.id);
-
-  allCategoriesName.forEach((category) => renderGender(category, categories));
+  allCategoriesName.forEach((category) => renderGenres(category));
 };
+
+const isAllButton = () => {
+  nameLinkCategories.textContent = "Categories";
+  window.location.reload();
+};
+
+caughtGenres();

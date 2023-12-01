@@ -8,3 +8,4 @@ import "././api/youtubeApi.js";
 import "./dropdownCategories.js";
 import "./scollPage.js";
 import "./searchingMovie.js";
+import "./querystringURL.js";

@@ -1,10 +1,11 @@
 import env from "../../env.js";
 
-const trailerIframe = document.querySelector(".iframe-trailer");
+export const trailerIframe = document.querySelector(".iframe-trailer");
+export const loader = document.querySelector(".iframe--loader");
 
 const getYoutubeVideo = (movieTitle) => {
-  const loader = document.querySelector(".iframe--loader");
-
+  trailerIframe.style.display = "none";
+  trailerIframe.src = "about:blank";
   loader.style.display = "block";
   fetch(
     `https://www.googleapis.com/youtube/v3/search?key=${env.apiYoutubeToken}&q=${movieTitle}&type=video`

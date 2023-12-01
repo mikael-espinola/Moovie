@@ -53,7 +53,7 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-areas:
     "released score"
-    "genders genders";
+    "genres genres";
 }
 
 .released-container {
@@ -93,7 +93,7 @@
   cursor: pointer;
 }
 
-.genders {
+.genres {
   margin-top: 0.5rem;
-  grid-area: genders;
+  grid-area: genres;
 }

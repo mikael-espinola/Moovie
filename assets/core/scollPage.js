@@ -1,30 +1,34 @@
-import { getInfoApi } from "./mocks.js";
+import { getInfoApi, searchingByCategoryMovie } from "./mocks.js";
+import {
+  getCategoryUrlParams,
+  getSearchUrlParams,
+  reloadHomePage,
+} from "./querystringURL.js";
 
-const currentNumberPage = document.querySelector(".current-page");
+export const currentNumberPage = document.querySelector(".current-page");
 const toTheTopButton = document.querySelector(".slider--home");
 const homeButton = document.querySelector(".inicio-button");
 
 homeButton.onclick = () => {
-  window.location.reload();
+  reloadHomePage();
+  localStorage.clear();
 };
 
-const currentPage = (pageNumber) => {
-  getInfoApi(pageNumber);
-};
+let isLoadingData = false;
 
-const handleScroll = () => {
+export const handleScroll = () => {
   let totalHeight = document.documentElement.scrollHeight;
-
   let visibleHeight = window.innerHeight;
-
   let scroll = window.scrollY;
-
   const percentage = (scroll / (totalHeight - visibleHeight)) * 100;
 
-  if (percentage > 98) {
+  if (percentage > 92 && !isLoadingData) {
+    let genreParams = getCategoryUrlParams();
+    let searchParams = getSearchUrlParams();
+
     const number = parseInt(currentNumberPage.textContent);
     currentNumberPage.textContent = number + 1;
-    currentPage(currentNumberPage.textContent);
+    requestApiByParams(genreParams, searchParams, currentNumberPage);
   }
 };
 
@@ -35,4 +39,21 @@ toTheTopButton.onclick = () => {
     top: 0,
     behavior: "smooth",
   });
+};
+
+export const requestApiByParams = async (
+  genreParams,
+  searchParams,
+  numberPage
+) => {
+  isLoadingData = true;
+
+  if (genreParams) {
+    await searchingByCategoryMovie(genreParams, numberPage.textContent);
+  } else if (searchParams) {
+    return;
+  } else {
+    await getInfoApi(numberPage.textContent);
+  }
+  isLoadingData = false;
 };

@@ -38,3 +38,7 @@
 .iframe-trailer {
   display: none;
 }
+
+body.no-scroll {
+  overflow: hidden;
+}

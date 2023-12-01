@@ -18,7 +18,7 @@
 }
 
 .options-header {
-  width: 25rem;
+  width: 35rem;
 }
 
 .options-header ul {
@@ -30,6 +30,14 @@
   text-decoration: none;
   list-style-type: none;
   padding: 1rem;
+}
+
+.link:hover {
+  cursor: pointer;
+}
+
+.link label {
+  pointer-events: none;
 }
 
 a:link {
@@ -60,6 +68,10 @@ a {
   transform: scaleX(0);
 }
 
+.generic-li:hover {
+  cursor: pointer;
+}
+
 .generic-li:hover::after {
   transform: scaleX(1);
 }
@@ -72,8 +84,28 @@ a {
   cursor: pointer;
 }
 
+.gerenic-ul {
+  width: 100%;
+}
+
 #search-button:hover {
   cursor: pointer;
+}
+
+#search-button {
+  display: flex;
+  flex-direction: row;
+}
+
+.label-visibility--search {
+  margin-right: 0.5rem;
+  opacity: 0.5;
+  display: none;
+  transition: 1.2s;
+}
+
+.label-visibility--active {
+  display: block;
 }
 
 .logoff-button--hidden {
@@ -86,4 +118,10 @@ a {
 
 .dropdown--generic-li-label:hover {
   cursor: pointer;
+}
+
+.fa-chevron-down {
+  margin-left: 0.5rem;
+  pointer-events: none;
+  opacity: 0.5;
 }
