@@ -49,6 +49,5 @@ export const renderMovieCard = (movie) => {
     selectedMovieFunction(movie);
     getVideoSelectedData(movie);
   };
-
   sectionMovie.appendChild(clone);
 };

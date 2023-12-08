@@ -1,122 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/styles/styles.css">
-    <script src="https://kit.fontawesome.com/79b557caef.js" crossorigin="anonymous"></script>  
-    <title>Moovie - The note</title>
-</head>
-<body>
-    <div class="loader "></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/styles/styles.css" />
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+    <script
+      src="https://kit.fontawesome.com/79b557caef.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Moovie</title>
+  </head>
+  <body>
+    <div class="loader"></div>
     <header class="cabecalho">
-        <h2>Moovie - Your favorite film finder</h2>
-        <nav class="options-header">
-            <ul>
-                <li class="generic-li"><a href="#" class="inicio-button">Home</a></li>
-                <li class="generic-li"><a href="#">Categories</a></li>
-                <li class="generic-li" id="search-button"><i class="fa-solid fa-magnifying-glass"></i></i></li>
-                <li class="generic-li" id="user-login"><label id="user-name">Login</label><i class="fa-regular fa-user"></i></li>
-                <li id="box--power-off"><i class="fa-solid fa-power-off logoff-button--hidden"></i></li>
-            </ul>
-        </nav>
+      <h2>Moovie - Your favorite film finder</h2>
+      <nav class="options-header">
+        <ul class="gerenic-ul">
+          <li class="generic-li">
+            <label class="link inicio-button">Home</label>
+          </li>
+          <li class="generic-li dropdown categories-button" data-dropdown>
+            <label class="link link-categories" data-dropdown-button
+              >Categories</label
+            >
+            <div class="dropdown-menu information-grid">
+              <div>
+                <ol class="dropdown-genre-list">
+                  <li class="generic-li">
+                    <label class="dropdown--generic-li-label">All</label>
+                  </li>
+                </ol>
+              </div>
+            </div>
+            <i class="fa-solid fa-chevron-down"></i>
+          </li>
+          <li class="generic-li dropdown" data-dropdown id="search-button">
+            <label class="label-visibility--search"></label>
+            <i
+              class="fa-solid fa-magnifying-glass link"
+              data-dropdown-button
+            ></i>
+            <div class="dropdown-menu search-container">
+              <form class="search-space">
+                <input class="dropdown--search-input" type="text" />
+                <button type="submit" class="dropdown--search-button">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </form>
+            </div>
+          </li>
+          <li class="generic-li" id="user-login">
+            <label id="user-name">Login</label
+            ><i class="fa-regular fa-user"></i>
+          </li>
+          <li id="box--power-off">
+            <i class="fa-solid fa-power-off logoff-button--hidden"></i>
+          </li>
+        </ul>
+      </nav>
     </header>
     <main>
       <section class="movies"></section>
     </main>
     <footer>
-        <section class="slider-pages">
-            <button class="slider-reload clickable" value="1"><i class="fa-solid fa-rotate-right"></i></button>
-            <label class="current-page label-hidden">1</label>
-            <button class="slider--home clickable" value="1"><i class="fa-solid fa-arrow-right fa-rotate-270"></i></button>
-        </section>
-        
+      <section class="slider-pages">
+        <label class="current-page label-hidden">1</label>
+        <button class="slider--home clickable" value="1">
+          <i class="fa-solid fa-arrow-right fa-rotate-270"></i>
+        </button>
+      </section>
     </footer>
 
     <dialog id="login-page">
-        <button id="close-dialog-login"><i class="fa-solid fa-circle-xmark close-dialog-login-button" aria-label="Close" title="Close"></i></button>
-        <section id="login-area">
-            <h1>Login <i class="fa-regular fa-user"></i></h1>
-            <div class="login-form-container">
-                <form class="form-box--login">
-                    <input required type="text" name="user" id="input-user" placeholder="Enter your user/email...">
-                    <input required type="password" id="input-password" name="password" placeholder="Enter your password...">
-                    <input type="submit" name="Enter" name="enterButton" id="enter-button-login" value="Log In">
-                </form>
-                <div id="button-register"><button id="create-credential-button">Become a Member!</button></div>
-            </div>
-        </section>
+      <button id="close-dialog-login">
+        <i
+          class="fa-solid fa-circle-xmark close-dialog-login-button"
+          aria-label="Close"
+          title="Close"
+        ></i>
+      </button>
+      <section id="login-area">
+        <h1>Login <i class="fa-regular fa-user"></i></h1>
+        <div class="login-form-container">
+          <form class="form-box--login">
+            <input
+              required
+              type="text"
+              name="user"
+              id="input-user"
+              placeholder="Enter your user/email..."
+            />
+            <input
+              required
+              type="password"
+              id="input-password"
+              name="password"
+              placeholder="Enter your password..."
+            />
+            <input
+              type="submit"
+              name="Enter"
+              name="enterButton"
+              id="enter-button-login"
+              value="Log In"
+            />
+          </form>
+          <div id="button-register">
+            <button id="create-credential-button">Sign In</button>
+          </div>
+        </div>
+      </section>
     </dialog>
     <dialog id="create-account-page">
-        <div class="cancel-button"><i class="fa-solid fa-circle-xmark" aria-label="Close" title="Close"></i></div>
-        <h3>Register now!</h3>
-        <section>
-            <form class="register-form">
-                <label>First Name:</label>
-                <input required name="name" type="text" id="register-first-name-input">
-                <label>Last Name:</label>
-                <input required name="lastName" type="text" id="register-last-name-input">
-                <label>Age: (in years)</label>
-                <input required name="age" type="number" id="register-age-input" placeholder="15" min="1">
-                <label>E-mail:</label>
-                <input required name="email" type="email" id="register-email-input">
-                <label>Password:</label>
-                <div class="password-area">
-                    <input required name="password" type="password" class="input-password first-pass" maxlength="20" id="register-password-input" min="8" max="22" >
-                    <img src="./assets/components/svg/eye-svgrepo-com.svg"  class="olho">
-                </div>
-                <label>Repeat the Password:</label>
-                <div class="password-area">
-                    <input required type="password" class="input-password confirm-pass" maxlength="20" id="register-repeat-password-input" min="8" max="22">
-                    <img src="./assets/components/svg/eye-svgrepo-com.svg"  class="olho">
-                </div>
-                <input type="submit" value="Go ahead!" id="register-button">
-            </form>
-        </section>
+      <div class="cancel-button">
+        <i
+          class="fa-solid fa-circle-xmark"
+          aria-label="Close"
+          title="Close"
+        ></i>
+      </div>
+      <h3>Register now!</h3>
+      <section>
+        <form class="register-form">
+          <label>First Name:</label>
+          <input
+            required
+            name="name"
+            type="text"
+            id="register-first-name-input"
+          />
+          <label>Last Name:</label>
+          <input
+            required
+            name="lastName"
+            type="text"
+            id="register-last-name-input"
+          />
+          <label>Age: (in years)</label>
+          <input
+            required
+            name="age"
+            type="number"
+            id="register-age-input"
+            placeholder="15"
+            min="1"
+          />
+          <label>E-mail:</label>
+          <input required name="email" type="email" id="register-email-input" />
+          <label>Password:</label>
+          <div class="password-area">
+            <input
+              required
+              name="password"
+              type="password"
+              class="input-password first-pass"
+              maxlength="20"
+              id="register-password-input"
+              min="8"
+              max="22"
+            />
+            <img
+              src="./assets/components/svg/eye-svgrepo-com.svg"
+              class="olho"
+            />
+          </div>
+          <label>Repeat the Password:</label>
+          <div class="password-area">
+            <input
+              required
+              type="password"
+              class="input-password confirm-pass"
+              maxlength="20"
+              id="register-repeat-password-input"
+              min="8"
+              max="22"
+            />
+            <img
+              src="./assets/components/svg/eye-svgrepo-com.svg"
+              class="olho"
+            />
+          </div>
+          <input type="submit" value="Go ahead!" id="register-button" />
+        </form>
+      </section>
     </dialog>
 
     <dialog id="selected-movie-dialog">
-        <header class="selected-movie--header">
-            <div class="selected-movie--cancel-button cancel-button"><i class="fa-solid fa-circle-xmark" aria-label="Close" title="Close"></i></div>
-            <h2 id="selected-movie--title"></h2>
-        </header>
-        <main id="selected-movie--container">
-            <figure class="selected-movie--container-img">
-                <img class="selected-movie--img">
-            </figure>
-            <section class="selected-movie--details">
-                <p class="selected-movie--overview"></p>
-                <div class="border-line"></div>
-                <div class="release-and-score--container">
-                    <div class="released-container">Released on: <label class="data-released"></label></div>
+      <header class="selected-movie--header">
+        <div class="selected-movie--cancel-button cancel-button">
+          <i
+            class="fa-solid fa-circle-xmark"
+            aria-label="Close"
+            title="Close"
+          ></i>
+        </div>
+        <h2 id="selected-movie--title"></h2>
+      </header>
+      <main id="selected-movie--container">
+        <figure class="selected-movie--container-img">
+          <img class="selected-movie--img" />
+        </figure>
+        <section class="selected-movie--details">
+          <p class="selected-movie--overview"></p>
+          <div class="border-line"></div>
+          <div class="info-containers">
+            <div class="released-container">
+              Released on: <label class="data-released"></label>
+            </div>
 
-                    <div class="selected-score"><label>Score:<label><label class="current-score"></label><i class="fa-regular fa-star" style="color: rgb(229, 42, 21);"></i></label></label></div>
-                </div>
+            <div class="selected-score">
+              <label
+                >Score:<label
+                  ><label class="current-score"></label
+                  ><i
+                    class="fa-regular fa-star"
+                    style="color: rgb(229, 42, 21)"
+                  ></i></label
+              ></label>
+            </div>
+            <div class="genres">
+              Genres: <label class="list-of-genres"></label>
+            </div>
+          </div>
 
-                <div class="selected-movie--more-details">
-                    <div class="border-line"></div>
-                    <button class="button-trailer"><i class="fa-brands fa-youtube youtube-icon"></i>Watch Trailer now!</button>
-                </div>
-                <div class="border-line"></div>
-                
-                
-            </section>
-
-        </main>
+          <div class="selected-movie--more-details">
+            <div class="border-line"></div>
+            <iframe
+              class="iframe-trailer"
+              name="trailer"
+              allowfullscreen
+              width="400"
+              height="350"
+              frameborder="0"
+            ></iframe>
+            <div class="loader-container">
+              <div class="iframe--loader"></div>
+            </div>
+          </div>
+          <div class="border-line"></div>
+        </section>
+      </main>
     </dialog>
 
     <template class="template-movie">
-        <div class="card-movie">
-            <p class="title"></p>
-            <div class="img-movie"></div>
-            <div class="score"></div>
-            <button class="info-button">
-                <h4 class="template-button--text">More info!</h4>
-            </button>
-        </div>
+      <div class="card-movie">
+        <p class="title"></p>
+        <div class="img-movie"></div>
+        <div class="score"></div>
+        <button class="info-button">
+          <h4 class="template-button--text">More info!</h4>
+        </button>
+      </div>
     </template>
 
-    <script type="module" src="./assets/core/script.js" defer></script>
-</body>
-</html>
+    <div class="error-screen--container error-screen--hidden">
+      <p>Filme não localizado!</p>
+      <lord-icon
+        class="error-screen--icon"
+        src="https://cdn.lordicon.com/ygvjgdmk.json"
+        trigger="hover"
+        style="width: 350px; height: 250px"
+      >
+      </lord-icon>
+    </div>
 
+    <script type="module" src="./assets/core/script.js" defer></script>
+    <script src="https://cdn.lordicon.com/lordicon.js" defer></script>
+  </body>
+</html>
