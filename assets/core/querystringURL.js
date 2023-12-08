@@ -4,10 +4,11 @@ import {
   searchingByNameMovie,
 } from "./mocks.js";
 
-let urlDefault = "http://127.0.0.1:5500/index.html";
+let urlDefault = window.location.href;
+console.log(urlDefault);
 
 export const setQueryString = (dataGenre, dataNamed) => {
-  const url = new URL("http://127.0.0.1:5500/index.html");
+  const url = new URL(urlDefault);
 
   if (dataGenre && !dataNamed) {
     url.searchParams.set("query", encodeURIComponent(dataGenre));
