@@ -5,7 +5,6 @@ import {
 } from "./mocks.js";
 
 let urlDefault = window.location.href;
-console.log(urlDefault);
 
 export const setQueryString = (dataGenre, dataNamed) => {
   const url = new URL(urlDefault);
