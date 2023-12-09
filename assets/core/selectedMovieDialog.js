@@ -7,11 +7,12 @@ const closeSelectedMovieModal = document.querySelector(
 const selectedMovie = document.querySelector("#selected-movie-dialog");
 
 export const selectedMovieFunction = async (movie) => {
-  dialogPosition();
   selectedMovie.showModal();
 
   let title = document.querySelector("#selected-movie--title");
   title.textContent = movie.title;
+
+  let container = document.querySelector("#selected-movie--container");
 
   let img = document.querySelector(".selected-movie--img");
   img.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;

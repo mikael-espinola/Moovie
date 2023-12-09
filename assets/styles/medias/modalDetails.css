@@ -1,0 +1,38 @@
+@media screen and (max-width: 1200px) {
+  #selected-movie--dialog {
+    width: 90%;
+  }
+
+  #selected-movie--container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.2em;
+  }
+  .selected-movie--container-img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .selected-movie--details {
+    margin: 0.9em 0;
+    padding: 0.5em;
+  }
+  .iframe-trailer {
+    width: 420px;
+    height: 320px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .iframe-trailer {
+    width: 320px;
+    height: 220px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .iframe-trailer {
+    width: 220px;
+    height: 220px;
+  }
+}
