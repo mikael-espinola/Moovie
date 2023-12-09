@@ -1,0 +1,20 @@
+@media screen and (max-width: 600px) {
+  #create-account-page {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 601px) and (max-width: 768px) {
+  #create-account-page {
+    width: 60%;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 975px) {
+  #create-account-page {
+    width: 55%;
+  }
+}
+@media screen and (min-width: 976px) {
+  #create-account-page {
+    width: 35%;
+  }
+}

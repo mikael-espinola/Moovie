@@ -1,0 +1,20 @@
+@media screen and (max-width: 600px) {
+  #login-page {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 601px) and (max-width: 768px) {
+  #login-page {
+    width: 60%;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 975px) {
+  #login-page {
+    width: 55%;
+  }
+}
+@media screen and (min-width: 976px) {
+  #login-page {
+    width: 35%;
+  }
+}
